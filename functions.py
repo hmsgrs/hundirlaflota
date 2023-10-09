@@ -17,7 +17,8 @@ class tablero:
             done = False
             while done == False:
                 # Mientras no haya un nuevo tablero válido, seguimos probando
-                # Creamos un tablero de trabajo para no modificar el original, porque al final del todo puede salirse del bucle en un paso intermedio
+                # Creamos un tablero de trabajo para no modificar el original, porque al final del todo puede salirse del bucle 
+                # en un paso intermedio
                 # Si no usamos una copia, "ensuciamos" el original y al reiniciar se quedan cachos de barco por el tablero.
                 working_tablero = np.copy(self.tab)    
                 collide = False
@@ -48,21 +49,21 @@ class tablero:
                 # Primero hacemos la comprobación de que podemos poner bien el primer listón del barco, comprobamos para todos los lados
                 for vector in vectores:
                     #estamos dentro del tablero?
-                    if pos_x+vector[0] > -1 and pos_x+vector[0] < 9 and pos_y+vector[1] > -1 and pos_y+vector[1] < 9:
+                    if pos_x+vector[0] > -1 and pos_x+vector[0] <= 9 and pos_y+vector[1] > -1 and pos_y+vector[1] <= 9:
                         #estamos ENCIMA de un barco?
                         if working_tablero[pos_x+vector[0],pos_y+vector[1]] != "_":
                             collide = True
                             break
                 for j in range(i):
                     #estamos dentro del tablero?
-                    if pos_x > -1 and pos_x < 9 and pos_y > -1 and pos_y < 9:
+                    if pos_x > -1 and pos_x <= 9 and pos_y > -1 and pos_y <= 9:
                         # estamos ENCIMA de un barco?
                         if working_tablero[pos_x,pos_y] != "_":
                             collide = True
                             break         
                         # Comprobamos que hay espacio en todos lados MENOS del que venimos, para eso tenemos el vec distinto por dirección
                         for vector in vec:
-                            if pos_x+vector[0] > -1 and pos_x+vector[0] < 9 and pos_y+vector[1] > -1 and pos_y+vector[1] < 9:
+                            if pos_x+vector[0] > -1 and pos_x+vector[0] <= 9 and pos_y+vector[1] > -1 and pos_y+vector[1] <= 9:
                                 if working_tablero[pos_x+vector[0],pos_y+vector[1]] != "_":
                                     collide = True              
                                     break
