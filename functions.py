@@ -102,7 +102,7 @@ class tablero:
         print ("Disparos")
         self.print_tablero(self.dis)
     def get_letters_to_numbers(self):
-        letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7}
+        letters_to_numbers = {"A": 0, "B": 1, "C": 2, "D": 3, "E": 4, "F": 5, "G": 6, "H": 7, "I": 8, "J": 9}
         return letters_to_numbers
     def print_tablero(self,t):
         tablero_p = pd.DataFrame(t, columns=vars.columnas,index=vars.filas)
